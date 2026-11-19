@@ -54,6 +54,10 @@ The screenshot below records the public leaderboard as displayed on 19 November 
 - This repository documents the implementation scope, submitted artifacts, and verification outcomes.
 - Competition-provided circuit files, factorization data, and the large submission ZIP are not duplicated here.
 
+- ## Verification report
+
+See the [official benchmark verification and submission record](docs/docs/verification-and-submission-notes.md).
+
 ## Reproducibility
 
 Use the public Kaggle notebook and the competition-provided KickMix environment and verifier files to reproduce the experiments. Paths and package availability in the notebook are specific to Kaggle's competition environment.
