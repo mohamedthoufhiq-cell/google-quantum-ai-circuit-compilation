@@ -1,32 +1,36 @@
 # Google Quantum AI — Verifiable Quantum Circuit Compilation
 
-A portfolio case study documenting my participation in the Kaggle **Google Quantum AI — Verifiable Quantum Circuit Compilation** competition.
+A technical case study of my participation in the Kaggle **Google Quantum AI — Verifiable Quantum Circuit Compilation** competition.
 
-## Competition and notebook
+## Competition and public notebook
 
 - **Competition:** https://www.kaggle.com/competitions/google-verifiable-quantum-circuit-compilation
 - **Public Kaggle notebook:** https://www.kaggle.com/code/mohamedthoufhiq/notebook0c18b2c9cf
 - **Author:** Mohamed Thoufhiq
 
-## Project overview
+The Kaggle notebook is the primary source for the code experiments and competition workflow. This GitHub repository provides a concise project record and links to that notebook.
+
+## Problem overview
 
 The competition evaluates quantum circuit compilation across three benchmark tasks:
 
-1. **DQI** — the main implementation and optimization focus documented in this portfolio.
-2. **Inverse Square Root** — included in the combined submission using the competition sample circuit.
-3. **DFTHCSOS** — included in the combined submission using the supplied baseline circuit family and supporting data.
+1. **DQI** — a decoder circuit benchmark. I explored circuit-level changes using KickMix and the competition's DQI reference builder.
+2. **Inverse Square Root** — included in my submitted package using the supplied sample circuit.
+3. **DFTHCSOS** — included in my submitted package using the supplied baseline circuit family and factorization data.
 
-The work uses the competition's KickMix circuit tooling and official verification workflows.
+## What I implemented and what I submitted
 
-## My implementation scope
+### DQI experiments
 
-My code-development work focused on the DQI benchmark. The inverse-square-root and DFTHCSOS components in the combined submission were supplied baseline artifacts that I checked with the official verifiers. They are not presented here as independent optimizations authored by me.
+The Kaggle notebook contains DQI experiments, including a runtime patch to the reference decoder's `_update_metadata` method. The patch combines selected mutually exclusive control conditions, applies controlled counter updates, and uncomputes temporary ancillas.
 
-The public Kaggle notebook is the primary reproducibility reference. DQI source files and further implementation notes will be added to this repository after the exact source is reviewed and checked against the competition's code-sharing rules.
+The notebook builds this experimental circuit as `dqi_metadata_optimized.kmb` and invokes the DQI verifier with a 2,048-shot diagnostic specification.
 
-## Verification record
+**Important distinction:** the final ZIP packaging cell in the downloaded notebook copies `sample_submission/dqi.kmb` into the submission directory. The uploaded ZIP also contains a DQI circuit of 886,118,180 bytes, consistent with the large supplied reference artifact. Therefore, I do **not** claim that the experimental metadata-optimized circuit was the DQI circuit used in the leaderboard submission.
 
-The following results were observed during verification of the combined submission:
+### Submitted baseline package
+
+The submitted ZIP contained all three benchmark tasks in the required structure. The task verifiers reported PASS for the submitted circuits:
 
 | Benchmark | Verifier result | Verified shots |
 |---|---:|---:|
@@ -34,23 +38,31 @@ The following results were observed during verification of the combined submissi
 | Inverse Square Root | PASS | 200,540,928 |
 | DFTHCSOS | PASS | 254,464 |
 
-These are task-verification outcomes, not claims of a prize or winning rank. At the time of the recorded Kaggle leaderboard screenshot, the submission displayed a public score of **1.00000** and a position of **3367**. Leaderboard positions can change while a competition is active.
+The ZIP structure and integrity were also checked. The public leaderboard displayed **1.00000** and position **3367** in my screenshot on 19 November 2026. These are time-specific observations and may change.
 
-## Repository contents
+A score of 1.00000 is the valid reference/baseline score; it is not evidence of a resource improvement over the reference circuits.
 
-This repository is being built as a documented technical case study. The Kaggle notebook is linked above; implementation source and supporting documentation will be added after review. The competition submission ZIP is intentionally not duplicated here as a substitute for readable source code.
+## Repository scope
+
+- The public Kaggle notebook contains the experiment code and detailed development history.
+- This repository documents the implementation scope, submitted artifacts, and verification outcomes.
+- Competition-provided circuit files, factorization data, and the large submission ZIP are not duplicated here.
+
+## Reproducibility
+
+Use the public Kaggle notebook and the competition-provided KickMix environment and verifier files to reproduce the experiments. Paths and package availability in the notebook are specific to Kaggle's competition environment.
 
 ## Competition rules and reuse
 
-Please review the official competition rules before reusing or redistributing code, benchmark data, or submission artifacts:
+Please read the official competition rules before reusing or redistributing competition code or data:
 
 https://www.kaggle.com/competitions/google-verifiable-quantum-circuit-compilation/rules
 
-The benchmark assets and supplied baselines remain subject to the competition's terms and applicable licenses.
+Public code sharing for this competition is addressed in Kaggle's competition rules. The competition-associated Kaggle notebook linked above is the primary public code location for this work.
 
 ## Acknowledgements
 
-Thanks to Google Quantum AI and Kaggle for providing the benchmark tasks and verification framework.
+Thanks to Google Quantum AI and Kaggle for the benchmark tasks, KickMix tooling, and verification framework.
 
 ---
 
