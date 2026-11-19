@@ -42,6 +42,12 @@ The ZIP structure and integrity were also checked. The public leaderboard displa
 
 A score of 1.00000 is the valid reference/baseline score; it is not evidence of a resource improvement over the reference circuits.
 
+## Leaderboard evidence
+
+The screenshot below records the public leaderboard as displayed on 19 November 2026. At that time, my entry showed a score of 1.00000 and a displayed position of 3367. These values may change as the leaderboard updates.
+
+![Kaggle leaderboard screenshot](leaderboard.png.jpeg)
+
 ## Repository scope
 
 - The public Kaggle notebook contains the experiment code and detailed development history.
